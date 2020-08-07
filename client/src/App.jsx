@@ -1,10 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-// import App from './App.jsx';
 
 class App extends React.omponent {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
 
     }
@@ -20,4 +18,4 @@ render() {
 }
 
 
-ReactDOM.render(<App />, document.getElementById('app'));
+export default App;
