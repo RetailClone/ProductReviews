@@ -4,8 +4,7 @@
   "description": "Full Stack component for Product Reviews",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "react-dev": "webpack -d --watch",
+    "test": "webpack -d --watch",
     "start": "nodemon server/index.js"
   },
   "repository": {
@@ -23,10 +22,13 @@
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
+    "css-loader": "^4.2.1",
+    "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
     "node": "^14.7.0",
