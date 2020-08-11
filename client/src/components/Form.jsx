@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import StarRatingComponent from 'react-star-rating-component';
+import StarRatingComponent from 'react-star-rating-component'; 
+
 class Form extends React.Component {
   constructor(props) {
     super(props);
@@ -15,12 +16,14 @@ class Form extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  //function for star review component
   onStarClick(nextValue, prevValue, name) {
     this.setState({rating: nextValue});
   }
 
   changeHandler(e) {
     this.setState({
+      //set each state to current target value
       [e.target.name]: e.target.value
     })
   }
@@ -38,7 +41,7 @@ class Form extends React.Component {
       console.log(res)
     })
     .catch(err => {
-      console.log('Error posting reviews in Client')
+      console.log('Error posting reviews in Client', err)
     })
   }
 
@@ -54,42 +57,52 @@ class Form extends React.Component {
     console.log(this.props)
     return (
       <form onSubmit={this.submitHandler}>
-      <div>
         <div>
-          <input
-          name='title'
-          placeholder='Review title (optional)'
-          value={title}
-          onChange={this.changeHandler}>
-          </input>
+          <div>
+            <input
+            name='title'
+            placeholder='Review title (optional)'
+            value={title}
+            onChange={this.changeHandler}>
+            </input>
+          </div>
+          <div>
+            <StarRatingComponent
+              name="rating"
+              starCount={5}
+              value={rating}
+              onStarClick={this.onStarClick.bind(this)}
+            />
+          </div>
+          <div>
+            <input 
+            name='customerName' 
+            placeholder='Display name' 
+            value={customerName}
+            onChange={this.changeHandler}
+            ></input>
+          </div>
+          <div>
+            <textarea 
+            rows='5' 
+            cols='50' 
+            placeholder='Review' 
+            name='review' 
+            value={review}
+            onChange={this.changeHandler}
+            ></textarea>
+          </div>
+          <div>
+            {/* <span>
+              <button>Cancel</button>
+            </span> */}
+            <button onClick={this.handleClick} type="submit">Submit review</button>
+          </div>
         </div>
-        <div>
-        <StarRatingComponent
-          name="rating"
-          starCount={5}
-          value={rating}
-          onStarClick={this.onStarClick.bind(this)}
-        />
-      </div>
-        <div>
-          <input name='customerName' placeholder='Display name' value={customerName}
-          onChange={this.changeHandler}></input>
-        </div>
-        <div>
-          <textarea rows='5' cols='50' placeholder='Review' name='review' value={review}
-          onChange={this.changeHandler}
-          ></textarea>
-        </div>
-        <div>
-          <span>
-            <button>Cancel</button>
-          </span>
-          <button onClick={this.handleClick} type="submit">Submit review</button>
-        </div>
-      </div>
       </form>
     )
   }
+  
 }
 
 export default Form;

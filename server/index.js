@@ -1,6 +1,6 @@
-const express = require('express');
-const path = require('path');
-const {getReviews, postReview} = require('../database/query')
+const express = require ('express');
+const path = require ('path');
+const {getReviews, postReview} = require ('../database/query')
 
 const app = express();
 const port = 8080;
@@ -9,10 +9,12 @@ const port = 8080;
 app.use(express.static(path.join(__dirname,'../client/dist')))
 app.use(express.json())
 
-//create `/reviews` route
-app.get('/rev', (req, res) => {
+//ROUTING
+
+//handle get request from the client
+app.get('/reviews', (req, res) => {
   getReviews((err, data) => {
-    if (err) {
+    if(err) {
       console.log('problem getting tasks from server');
       res.sendStatus(500);
     } else {
@@ -21,6 +23,7 @@ app.get('/rev', (req, res) => {
   });
 });
 
+//handle post request from the client
 app.post('/addReview', (req, res) => {
     console.log('Sucessfully posted data', req.body)
     postReview(req.body.customer_name, req.body.review_title, req.body.review,req.body.rating, (err, data) => {

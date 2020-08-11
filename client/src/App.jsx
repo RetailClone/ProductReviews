@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from "axios";
-import StarRatingComponent from 'react-star-rating-component';
 import ReviewList from './components/ReviewList.jsx';
 import Form from './components/Form.jsx'
 import './styles/styles.css'
@@ -12,53 +11,51 @@ class App extends React.Component {
       reviewTitle: [],
       showForm: false
     }
+    //binding functions
     this.getReview = this.getReview.bind(this);
   }
 
+  componentDidMount() {
+    this.getReview();
+  }
 
+  getReview(){
+    axios.get('/reviews')
+    .then((res) => {
+      console.log('from axios get request: ', res);
+      this.setState({
+        reviewTitle: res.data
+      });
+    })
+    .catch((err) => {
+      console.log('Error getitng the data', err)
+    })
+  }
 
-componentDidMount() {
-  this.getReview();
-}
-
-getReview(){
-  axios.get('/rev')
-  .then((res) => {
-    console.log('from axios get request: ', res);
+  handleClick() {
     this.setState({
-      reviewTitle: res.data
-    });
-  })
-  .catch((err) => {
-    console.log('Error getitng the data', err)
-  })
-}
+      showForm: true
+    })
+  }
 
-handleClick() {
-  this.setState({
-    showForm: true
-  })
-}
-
-render() {
-  console.log("This is reviews",this.state.reviewTitle)
-  return(
-    <div className="container">
+  render() {
+    console.log("This is reviews",this.state.reviewTitle)
+    return(
+     <div className="container">
       <div>
-      <h2 className="heading" >Guest Ratings &amp; Reviews</h2>
+        <h2 className="heading" >Guest Ratings &amp; Reviews</h2>
       </div>
       <div className="review">
         <button className="reviewBtn" onClick={this.handleClick.bind(this)}>Write a review</button>
         {this.state.showForm ? <Form showForm={this.state.showForm} /> : null}
       </div>
       <div>
-      <ReviewList reviewTitle={this.state.reviewTitle}/>
+        <ReviewList reviewTitle={this.state.reviewTitle}/>
       </div>
-
     </div>
-  )
-}
+  );
 }
 
+}
 
 export default App;
