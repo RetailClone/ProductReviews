@@ -3,7 +3,7 @@ import axios from "axios";
 import StarRatingComponent from 'react-star-rating-component';
 import ReviewList from './components/ReviewList.jsx';
 import Form from './components/Form.jsx'
-import x from './styles/styles.css'
+import './styles/styles.css'
 
 class App extends React.Component {
   constructor() {
@@ -43,11 +43,12 @@ handleClick() {
 render() {
   console.log("This is reviews",this.state.reviewTitle)
   return(
-    <div>
-      <h2 >Guest Ratings &amp; Reviews</h2>
-
+    <div className="container">
       <div>
-        <button onClick={this.handleClick.bind(this)}>Write a review</button>
+      <h2 className="heading" >Guest Ratings &amp; Reviews</h2>
+      </div>
+      <div className="review">
+        <button className="reviewBtn" onClick={this.handleClick.bind(this)}>Write a review</button>
         {this.state.showForm ? <Form showForm={this.state.showForm} /> : null}
       </div>
       <div>
