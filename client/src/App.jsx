@@ -53,9 +53,8 @@ class App extends React.Component {
         <ReviewList reviewTitle={this.state.reviewTitle}/>
       </div>
     </div>
-  );
-}
-
+    );
+  }
 }
 
 export default App;

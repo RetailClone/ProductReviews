@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import StarRatingComponent from 'react-star-rating-component'; 
+import StarRatingComponent from 'react-star-rating-component';
 
 class Form extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class Form extends React.Component {
     this.changeHandler = this.changeHandler.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
     this.handleClick = this.handleClick.bind(this);
-  }
+   }
 
   //function for star review component
   onStarClick(nextValue, prevValue, name) {
@@ -75,19 +75,19 @@ class Form extends React.Component {
             />
           </div>
           <div>
-            <input 
-            name='customerName' 
-            placeholder='Display name' 
+            <input
+            name='customerName'
+            placeholder='Display name'
             value={customerName}
             onChange={this.changeHandler}
             ></input>
           </div>
           <div>
-            <textarea 
-            rows='5' 
-            cols='50' 
-            placeholder='Review' 
-            name='review' 
+            <textarea
+            rows='5'
+            cols='50'
+            placeholder='Review'
+            name='review'
             value={review}
             onChange={this.changeHandler}
             ></textarea>
@@ -102,7 +102,7 @@ class Form extends React.Component {
       </form>
     )
   }
-  
+
 }
 
 export default Form;
