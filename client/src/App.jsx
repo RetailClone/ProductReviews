@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from "axios";
+import StarRatingComponent from 'react-star-rating-component';
 import ReviewList from './components/ReviewList.jsx';
 import Form from './components/Form.jsx'
 import x from './styles/styles.css'
@@ -13,6 +14,8 @@ class App extends React.Component {
     }
     this.getReview = this.getReview.bind(this);
   }
+
+
 
 componentDidMount() {
   this.getReview();
@@ -42,9 +45,10 @@ render() {
   return(
     <div>
       <h2 >Guest Ratings &amp; Reviews</h2>
+
       <div>
         <button onClick={this.handleClick.bind(this)}>Write a review</button>
-        {this.state.showForm ? <Form /> : null}
+        {this.state.showForm ? <Form showForm={this.state.showForm} /> : null}
       </div>
       <div>
       <ReviewList reviewTitle={this.state.reviewTitle}/>

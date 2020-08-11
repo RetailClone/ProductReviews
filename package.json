@@ -30,11 +30,13 @@
   "dependencies": {
     "axios": "^0.19.2",
     "express": "^4.17.1",
+    "moment": "^2.27.0",
     "mysql": "^2.18.1",
     "node": "^14.7.0",
     "nodemon": "^2.0.4",
     "path": "^0.12.7",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-star-rating-component": "^1.4.1"
   }
 }

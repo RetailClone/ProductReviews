@@ -15,14 +15,26 @@ connection.connect((err) => {
   }
 })
 
-const getTitle = (callback) => {
+const getReviews = (callback) => {
   connection.query('SELECT * FROM reviews', (err, data) => {
     if (err) {
-      console.log('problem getting all tasks in query');
+      console.log('problem getting all reviews in query');
       callback(err, null);
     } else {
       callback(null, data);
     }
   });
 };
-module.exports = {getTitle};
+
+  const postReview = (review1, review2, review3, review4, callback) => {
+    connection.query(`INSERT INTO reviews (customer_name, review_title, review, rating) VALUES ('${review1}','${review2}','${review3}', '${review4}')`, (err, data) => {
+      if (err) {
+        console.log('problem posting reviews in query');
+        callback(err, null);
+      } else {
+        callback(null, data);
+      }
+    })
+  };
+
+module.exports = {getReviews, postReview};
