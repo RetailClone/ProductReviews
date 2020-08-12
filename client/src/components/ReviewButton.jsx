@@ -9,7 +9,17 @@ function ReviewButton(props) {
       <button className="reviewBtn" onClick={() => setForm(true)}>
         Write a review
       </button>
-      {showForm ? <Form getReview={props.getReview} onClick={bool => setForm(bool)}/> : null}
+      {showForm ? <Form
+      getReview={props.getReview}
+      onClick={bool => setForm(bool)}
+      customerName={props.customerName}
+      title={props.title}
+      review={props.review}
+      rating={props.rating}
+      onStarClick={props.onStarClick}
+      changeHandler={props.changeHandler}
+      submitHandler={props.submitHandler}
+      /> : null}
     </div>
   )
 }

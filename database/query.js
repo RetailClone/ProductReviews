@@ -11,6 +11,17 @@ connection.connect((err) => {
   }
 });
 
+const getProducts = (callback) => {
+  connection.query("SELECT * FROM products", (err, data) => {
+    if (err) {
+      console.log("problem getting all reviews in query");
+      callback(err, null);
+    } else {
+      callback(null, data);
+    }
+  });
+};
+
 const getReviews = (callback) => {
   connection.query("SELECT * FROM reviews", (err, data) => {
     if (err) {
@@ -22,9 +33,24 @@ const getReviews = (callback) => {
   });
 };
 
-const postReview = (review1, review2, review3, review4, callback) => {
+const getReviewsByID = (itemId, callback) => {
   connection.query(
-    `INSERT INTO reviews (customer_name, review_title, review, rating) VALUES ('${review1}','${review2}','${review3}', '${review4}')`,
+    "SELECT * FROM reviews WHERE item_id=?",
+    [itemId],
+    (err, data) => {
+      if (err) {
+        console.log("problem getting all reviews in query");
+        callback(err, null);
+      } else {
+        callback(null, data);
+      }
+    }
+  );
+};
+
+const postReview = (review1, review2, review3, review4, review5, callback) => {
+  connection.query(
+    `INSERT INTO reviews (customer_name, review_title, review, rating, item_id) VALUES ('${review1}','${review2}','${review3}', '${review4}','${review5}')`,
     (err, data) => {
       if (err) {
         console.log("problem posting reviews in query");
@@ -36,4 +62,4 @@ const postReview = (review1, review2, review3, review4, callback) => {
   );
 };
 
-module.exports = { getReviews, postReview };
+module.exports = { getReviews, postReview, getProducts, getReviewsByID };
