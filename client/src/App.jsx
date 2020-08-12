@@ -1,15 +1,17 @@
 import React from 'react';
 import axios from "axios";
 import ReviewList from './components/ReviewList.jsx';
-import Form from './components/Form.jsx'
+// import Form from './components/Form.jsx'
 import './styles/styles.css'
+import RadialBarChart from './components/RadialBarChart.jsx';
+import StaticRatingStars from './components/StaticRatingStars.jsx';
+import ReviewButton from './components/ReviewButton.jsx';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      reviewTitle: [],
-      showForm: false
+      reviews: [],
     }
     //binding functions
     this.getReview = this.getReview.bind(this);
@@ -24,7 +26,7 @@ class App extends React.Component {
     .then((res) => {
       console.log('from axios get request: ', res);
       this.setState({
-        reviewTitle: res.data
+        reviews: res.data
       });
     })
     .catch((err) => {
@@ -32,25 +34,24 @@ class App extends React.Component {
     })
   }
 
-  handleClick() {
-    this.setState({
-      showForm: true
-    })
-  }
-
   render() {
-    console.log("This is reviews",this.state.reviewTitle)
+    console.log("This is reviews",this.state.reviews)
     return(
      <div className="container">
       <div>
         <h2 className="heading" >Guest Ratings &amp; Reviews</h2>
       </div>
+      <div>
+      <div>
+      <RadialBarChart />
+      </div>
+      <StaticRatingStars />
+      </div>
       <div className="review">
-        <button className="reviewBtn" onClick={this.handleClick.bind(this)}>Write a review</button>
-        {this.state.showForm ? <Form showForm={this.state.showForm} /> : null}
+        <ReviewButton getReview={this.getReview}/>
       </div>
       <div>
-        <ReviewList reviewTitle={this.state.reviewTitle}/>
+        <ReviewList reviews={this.state.reviews}/>
       </div>
     </div>
     );

@@ -12,7 +12,7 @@ class ReviewList extends React.Component {
     return(
       <div>
         <ul>
-          {this.props.reviewTitle.map((item, idx) => (
+          {this.props.reviews.map((item, idx) => (
             <div className="list" key={idx}>
               <div>
                 <h4 className="title">
@@ -29,6 +29,7 @@ class ReviewList extends React.Component {
               <div className="timebox">
                 <span>{item.customer_name}</span>
                 <span> - </span>
+                {/* use momentjs to format date */}
                 <span>{moment(item.date).calendar()}</span>
               </div>
               <div className="itemReview">

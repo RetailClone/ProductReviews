@@ -13,7 +13,6 @@ class Form extends React.Component {
     }
     this.changeHandler = this.changeHandler.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
-    this.handleClick = this.handleClick.bind(this);
    }
 
   //function for star review component
@@ -39,15 +38,15 @@ class Form extends React.Component {
     })
     .then(res => {
       console.log(res)
+      this.setState({
+        customerName: '',
+        title: '',
+        review: '',
+        rating: 0
+      });
     })
     .catch(err => {
       console.log('Error posting reviews in Client', err)
-    })
-  }
-
-  handleClick(e) {
-    this.setState({
-      [e.target.name]: ''
     })
   }
 
@@ -93,10 +92,11 @@ class Form extends React.Component {
             ></textarea>
           </div>
           <div>
-            {/* <span>
-              <button>Cancel</button>
-            </span> */}
-            <button onClick={this.handleClick} type="submit">Submit review</button>
+            <span>
+              {/* Click handler to close the form when cancel is clicked */}
+              <button onClick={() => this.props.onClick(false)}>Cancel</button>
+            </span>
+            <button  type="submit">Submit review</button>
           </div>
         </div>
       </form>
