@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+var cors = require("cors");
 const {
   getReviews,
   postReview,
@@ -13,6 +14,7 @@ const port = 8080;
 //connect to the client
 app.use(express.static(path.join(__dirname, "../client/dist")));
 app.use(express.json());
+app.use(cors());
 
 //ROUTING
 
@@ -28,18 +30,6 @@ app.get("/products", (req, res) => {
   });
 });
 
-//handle get request from the client
-// app.get("/reviews", (req, res) => {
-//   getReviews((err, data) => {
-//     if (err) {
-//       console.log("problem getting tasks from server");
-//       res.sendStatus(500);
-//     } else {
-//       res.send(data);
-//     }
-//   });
-// });
-
 app.get("/reviews/:item_id", (req, res) => {
   console.log(req.params);
   getReviewsByID(req.params.item_id, (err, data) => {
@@ -53,7 +43,7 @@ app.get("/reviews/:item_id", (req, res) => {
 });
 
 //handle post request from the client
-app.post("/addReview", (req, res) => {
+app.post("/add-review", (req, res) => {
   console.log("Sucessfully posted data", req.body);
   postReview(
     req.body.customer_name,

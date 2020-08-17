@@ -2,6 +2,7 @@ import React from "react";
 
 function RadialBarChart() {
   return (
+    <div>
       <svg aria-hidden="true">
         <circle
           stroke="#f7f7f7"
@@ -33,6 +34,7 @@ function RadialBarChart() {
           100
         </text>
       </svg>
+    </div>
   );
 }
 

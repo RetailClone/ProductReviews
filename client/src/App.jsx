@@ -1,75 +1,13 @@
-// import React from 'react';
-// import axios from "axios";
-// import ReviewList from './components/ReviewList.jsx';
-// // import Form from './components/Form.jsx'
-// import './styles/styles.css'
-// import RadialBarChart from './components/RadialBarChart.jsx';
-// import StaticRatingStars from './components/StaticRatingStars.jsx';
-// import ReviewButton from './components/ReviewButton.jsx';
-
-// class App extends React.Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       reviews: [],
-//     }
-//     //binding functions
-//     this.getReview = this.getReview.bind(this);
-//   }
-
-//   componentDidMount() {
-//     this.getReview();
-//   }
-
-//   getReview(){
-//     axios.get('/reviews')
-//     .then((res) => {
-//       console.log('from axios get request: ', res);
-//       this.setState({
-//         reviews: res.data
-//       });
-//     })
-//     .catch((err) => {
-//       console.log('Error getitng the data', err)
-//     })
-//   }
-
-//   render() {
-//     console.log("This is reviews",this.state.reviews)
-//     return(
-//      <div className="container">
-//       <div>
-//         <h2 className="heading" >Guest Ratings &amp; Reviews</h2>
-//       </div>
-//       <div>
-//       <div>
-//       <RadialBarChart />
-//       </div>
-//       <StaticRatingStars />
-//       </div>
-//       <div className="review">
-//         <ReviewButton getReview={this.getReview}/>
-//       </div>
-//       <div>
-//         <ReviewList reviews={this.state.reviews}/>
-//       </div>
-//     </div>
-//     );
-//   }
-// }
-
-// export default App;
-
 import React from 'react';
 import axios from "axios";
 import ReviewList from './components/ReviewList.jsx';
-// import Form from './components/Form.jsx'
-import './styles/styles.css'
-import RadialBarChart from './components/RadialBarChart.jsx';
-import StaticRatingStars from './components/StaticRatingStars.jsx';
 import ReviewButton from './components/ReviewButton.jsx';
-import Products from './components/Products.jsx'
 import Search from './components/Search.jsx'
+import DisplayProgressBar from './components/DisplayProogressBar.jsx'
+import RatingSummary from './components/RatingSummay.jsx'
+import CircleProgress from './components/CircleProgress.jsx'
+import SortingReviews from './components/SortingReviews.jsx';
+import './styles/styles.css'
 
 class App extends React.Component {
   constructor() {
@@ -81,7 +19,8 @@ class App extends React.Component {
       title: '',
       review: '',
       rating: 0,
-      item_id: 0
+      item_id: 0,
+      percentage: 80,
     }
     //binding functions
     this.getProducts = this.getProducts.bind(this);
@@ -116,7 +55,7 @@ class App extends React.Component {
   }
 
   getProducts(){
-    axios.get('/products')
+    axios.get('http://localhost:8080/products')
     .then((res) => {
       console.log('from axios get request: ', res);
       this.setState({
@@ -129,7 +68,7 @@ class App extends React.Component {
   }
 
   getReview(item_id){
-    axios.get(`/reviews/${item_id}`)
+    axios.get(`http://localhost:8080/reviews/${item_id}`)
     .then((res) => {
       console.log('from axios get request: ', res);
       this.setState({
@@ -144,7 +83,7 @@ class App extends React.Component {
   submitHandler(e) {
     e.preventDefault()
     console.log(this.state)
-    axios.post('/addReview', {
+    axios.post('http://localhost:8080/add-review', {
       customer_name:  this.state.customerName,
       review_title: this.state.title,
       review:  this.state.review,
@@ -170,24 +109,30 @@ class App extends React.Component {
 
 
   render() {
-    console.log("This is reviews",this.state.reviews)
+    console.log("This is reviews",this.state.reviews);
+    console.log("This is products",this.state.products)
     return(
      <div className="container">
+
       <div>
         <Search getReview={this.getReview} getId={this.getId}/>
       </div>
-       <div>
+
+       {/* <div>
          <Products products={this.state.products} getReview={this.getReview}/>
-       </div>
+       </div> */}
+
       <div>
         <h2 className="heading" >Guest Ratings &amp; Reviews</h2>
       </div>
-      <div>
-      {/* <div>
-        <RadialBarChart />
-        <StaticRatingStars />
-      </div> */}
+
+      <div className="header-stats-container">
+        <DisplayProgressBar percentage={this.state.percentage}/>
+        <RatingSummary />
+        <CircleProgress />
       </div>
+
+
       <div className="review">
         <ReviewButton
         getReview={this.getReview}
@@ -200,9 +145,13 @@ class App extends React.Component {
         submitHandler={this.submitHandler}
         />
       </div>
+
+      <SortingReviews />
+
       <div>
         <ReviewList reviews={this.state.reviews}/>
       </div>
+
     </div>
     );
   }

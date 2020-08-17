@@ -5,54 +5,8 @@ import StarRatingComponent from 'react-star-rating-component';
 class Form extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   customerName: '',
-    //   title: '',
-    //   review: '',
-    //   rating: 0
-    // }
-    // this.changeHandler = this.changeHandler.bind(this);
-    // this.submitHandler = this.submitHandler.bind(this);
-   }
-
-  //function for star review component
-  // onStarClick(nextValue, prevValue, name) {
-  //   this.setState({rating: nextValue});
-  // }
-
-  // changeHandler(e) {
-  //   this.setState({
-  //     //set each state to current target value
-  //     [e.target.name]: e.target.value
-  //   })
-  // }
-
-  // submitHandler(e) {
-  //   e.preventDefault()
-  //   console.log(this.state)
-  //   axios.post('/addReview', {
-  //     customer_name:  this.state.customerName,
-  //     review_title: this.state.title,
-  //     review:  this.state.review,
-  //     rating: this.state.rating
-  //   })
-  //   .then(res => {
-  //     console.log(res)
-  //     this.setState({
-  //       customerName: '',
-  //       title: '',
-  //       review: '',
-  //       rating: 0
-  //     });
-  //   })
-  //   .catch(err => {
-  //     console.log('Error posting reviews in Client', err)
-  //   })
-  // }
-
+  }
   render() {
-    //destructure
-    // const { customerName, title, review, rating} = this.state;
     console.log("this is form", this.props)
     return (
       <form onSubmit={this.props.submitHandler}>
