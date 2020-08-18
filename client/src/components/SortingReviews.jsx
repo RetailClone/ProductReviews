@@ -4,7 +4,7 @@ function SortingReviews(props) {
   return (
     <div className="sorting-reviews">
        <div className="sort-by-date">
-          <select className="dropdown">
+          <select className="dropdown" onChange={() => {props.sortDate()}}>
             <option className="options">
               most recent
             </option>

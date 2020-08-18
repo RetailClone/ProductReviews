@@ -19,8 +19,10 @@ app.use(cors());
 //ROUTING
 
 //handle get request and send products
-app.get("/products", (req, res) => {
-  getProducts((err, data) => {
+//------------------------------------------
+app.get("/products/:item_id", (req, res) => {
+  console.log("this is params from products", req.params);
+  getProducts(req.params.item_id, (err, data) => {
     if (err) {
       console.log("problem getting tasks from server");
       res.sendStatus(500);

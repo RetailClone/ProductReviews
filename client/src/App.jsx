@@ -29,11 +29,28 @@ class App extends React.Component {
     this.submitHandler = this.submitHandler.bind(this);
     this.onStarClick = this.onStarClick.bind(this)
     this.getId = this.getId.bind(this);
+    this.sortDate = this.sortDate.bind(this);
   }
 
   componentDidMount() {
     this.getReview();
     this.getProducts();
+  }
+
+  // sortDate() {
+  //   const {reviews} = this.state
+  //   let newReviews = reviews.reverse()
+  //   this.setState ({
+  //     reviews: newReviews.sort((a,b) => a.date > b.date)
+  //   })
+  // }
+
+  sortDate() {
+    const {reviews} = this.state
+    let newReviews = reviews.sort((a,b) => a.date > b.date)
+    this.setState ({
+      reviews: newReviews
+    })
   }
 
   getId(id) {
@@ -54,8 +71,9 @@ class App extends React.Component {
     })
   }
 
-  getProducts(){
-    axios.get('http://localhost:8080/products')
+  //making changes here --------------------
+  getProducts(item_id){
+    axios.get(`http://localhost:8080/products/${item_id}`)
     .then((res) => {
       console.log('from axios get request: ', res);
       this.setState({
@@ -63,7 +81,7 @@ class App extends React.Component {
       });
     })
     .catch((err) => {
-      console.log('Error getitng the data', err)
+      console.log('Error getitng the data from client', err)
     })
   }
 
@@ -90,7 +108,9 @@ class App extends React.Component {
       rating: this.state.rating,
       item_id: this.state.item_id
     })
+    //----------------------------------------------
     .then( () => this.getReview(this.state.item_id))
+    // .then( () => this.getProducts(this.state.item_id))
     .then(res => {
       console.log(res)
       this.setState({
@@ -115,7 +135,7 @@ class App extends React.Component {
      <div className="container">
 
       <div>
-        <Search getReview={this.getReview} getId={this.getId}/>
+        <Search getReview={this.getReview} getProducts={this.getProducts} getId={this.getId}/>
       </div>
 
        {/* <div>
@@ -127,8 +147,8 @@ class App extends React.Component {
       </div>
 
       <div className="header-stats-container">
-        <DisplayProgressBar percentage={this.state.percentage}/>
-        <RatingSummary />
+        <DisplayProgressBar percentage={this.state.products}/>
+        <RatingSummary percentage={this.state.products}/>
         <CircleProgress />
       </div>
 
@@ -146,7 +166,7 @@ class App extends React.Component {
         />
       </div>
 
-      <SortingReviews />
+      <SortingReviews sortDate={this.sortDate}/>
 
       <div>
         <ReviewList reviews={this.state.reviews}/>

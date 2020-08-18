@@ -7,7 +7,8 @@ function Search(props) {
   return (
     <div>
       <input type="text" onChange={(e) => setInput(e.target.value)}/>
-      <button  onClick={() => {props.getReview(input);  props.getId(input); setReview(true)}}>Submit</button>
+      {/* ------- */}
+      <button  onClick={() => {props.getReview(input); props.getProducts(input); props.getId(input); setReview(true)}}>Submit</button>
       {/* {showReview ? <RadialBarChart /> : null } */}
     </div>
   )
