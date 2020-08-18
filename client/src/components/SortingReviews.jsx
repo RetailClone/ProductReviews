@@ -5,10 +5,13 @@ function SortingReviews(props) {
     <div className="sorting-reviews">
        <div className="sort-by-date">
           <select className="dropdown" onChange={() => {props.sortDate()}}>
+            <option value="">
+              least recent
+            </option>
             <option className="options">
               most recent
             </option>
-            <option>
+            {/* <option >
               highest rated
             </option>
             <option>
@@ -16,13 +19,22 @@ function SortingReviews(props) {
             </option>
             <option>
               most helpful
-            </option>
+            </option> */}
           </select>
        </div>
 
        <div className="sort-by-date">
-       <select className="dropdown">
-            <option className="options">
+       <select className="dropdown" onChange={() => {props.sortRatings()}}>
+         <option value="">
+         sort by Ratings
+         </option>
+         <option value="">
+           highest to lowest
+         </option>
+         <option value="">
+           lowest to highest
+         </option>
+            {/* <option className="options">
               5 stars
             </option>
             <option>
@@ -36,7 +48,7 @@ function SortingReviews(props) {
             </option>
             <option>
               1 stars
-            </option>
+            </option> */}
           </select>
        </div>
        <div className="sort-by-photos">

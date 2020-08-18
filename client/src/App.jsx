@@ -30,6 +30,7 @@ class App extends React.Component {
     this.onStarClick = this.onStarClick.bind(this)
     this.getId = this.getId.bind(this);
     this.sortDate = this.sortDate.bind(this);
+    this.sortRatings = this.sortRatings.bind(this);
   }
 
   componentDidMount() {
@@ -37,19 +38,19 @@ class App extends React.Component {
     this.getProducts();
   }
 
-  // sortDate() {
-  //   const {reviews} = this.state
-  //   let newReviews = reviews.reverse()
-  //   this.setState ({
-  //     reviews: newReviews.sort((a,b) => a.date > b.date)
-  //   })
-  // }
+  sortRatings() {
+    const {reviews} = this.state
+    let newRating = reviews.reverse()
+    this.setState ({
+      reviews: newRating.sort((a,b) => a.rating > b.rating)
+    })
+  }
 
   sortDate() {
     const {reviews} = this.state
-    let newReviews = reviews.sort((a,b) => a.date > b.date)
+    let newReviews = reviews.reverse()
     this.setState ({
-      reviews: newReviews
+      reviews: newReviews.sort((a,b) => a.date > b.date)
     })
   }
 
@@ -166,7 +167,7 @@ class App extends React.Component {
         />
       </div>
 
-      <SortingReviews sortDate={this.sortDate}/>
+      <SortingReviews sortDate={this.sortDate} sortRatings={this.sortRatings}/>
 
       <div>
         <ReviewList reviews={this.state.reviews}/>
