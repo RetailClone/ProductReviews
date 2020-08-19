@@ -134,7 +134,7 @@ div {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: auto;
+  margin: 16px auto 16px auto;
 }
 
 /* css for header-progress-bar */
@@ -352,7 +352,8 @@ div {
 
 .checkbox-display {
   display: flex;
-  flex-direction: column
+  flex-direction: column;
+  background-color:  rgb(247, 247, 247);
 }
 
 input[type=checkbox] + label {

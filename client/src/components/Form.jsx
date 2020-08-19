@@ -12,20 +12,20 @@ class Form extends React.Component {
       <form onSubmit={this.props.submitHandler}>
         <div>
           <div>
-            <input
-            name='title'
-            placeholder='Review title (optional)'
-            value={this.props.title}
-            onChange={this.props.changeHandler}>
-            </input>
-          </div>
-          <div>
             <StarRatingComponent
               name="rating"
               starCount={5}
               value={this.props.rating}
               onStarClick={this.props.onStarClick}
             />
+          </div>
+          <div>
+            <input
+            name='title'
+            placeholder='Review title (optional)'
+            value={this.props.title}
+            onChange={this.props.changeHandler}>
+            </input>
           </div>
           <div>
             <input
