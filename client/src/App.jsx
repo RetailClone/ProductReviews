@@ -66,7 +66,7 @@ class App extends React.Component {
 
   //Axios request to get the products from the server
   getProducts(item_id = this.state.item_id) {
-    axios.get(`http://${window.location.hostname}:8080/products/${item_id}`)
+    axios.get(`http://ec2-52-14-146-214.us-east-2.compute.amazonaws.com :8080/products/${item_id}`)
     .then((res) => {
       console.log('from axios get request: ', res);
       this.setState({
@@ -80,7 +80,7 @@ class App extends React.Component {
 
   //Axios request to get the reviews from the server
   getReview(item_id = this.state.item_id) {
-    axios.get(`http://${window.location.hostname}:8080/reviews/${item_id}`)
+    axios.get(`http://ec2-52-14-146-214.us-east-2.compute.amazonaws.com:8080/reviews/${item_id}`)
     .then((res) => {
       console.log('from axios get request: ', res);
       this.setState({
@@ -95,7 +95,7 @@ class App extends React.Component {
   submitHandler(e) {
     e.preventDefault()
     console.log(this.state)
-    axios.post(`http://${window.location.hostname}:8080/add-review`, {
+    axios.post(`http://ec2-52-14-146-214.us-east-2.compute.amazonaws.com:8080/add-review`, {
       customer_name:  this.state.customerName,
       review_title: this.state.title,
       review:  this.state.review,

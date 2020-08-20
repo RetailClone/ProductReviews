@@ -24,7 +24,7 @@ app.get("/products/:item_id", (req, res) => {
   console.log("this is params from products", req.params);
   getProducts(req.params.item_id, (err, data) => {
     if (err) {
-      console.log("problem getting tasks from server");
+      console.log("problem getting tasks from server for products");
       res.sendStatus(500);
     } else {
       res.send(data);
@@ -36,7 +36,7 @@ app.get("/reviews/:item_id", (req, res) => {
   console.log(req.params);
   getReviewsByID(req.params.item_id, (err, data) => {
     if (err) {
-      console.log("problem getting tasks from server");
+      console.log("problem getting tasks from server for reviews");
       res.sendStatus(500);
     } else {
       res.send(data);
@@ -66,5 +66,5 @@ app.post("/add-review", (req, res) => {
 
 //listen to port
 app.listen(port, () => {
-  console.log(`Listening to port http://localhost:${port}`);
+  console.log(`Listening to port ${port}`);
 });
