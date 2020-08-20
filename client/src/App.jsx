@@ -66,6 +66,7 @@ class App extends React.Component {
 
   //Axios request to get the products from the server
   getProducts(item_id = this.state.item_id) {
+    // axios.get(`http://${window.location.hostname}:8080/products/${item_id}`)
     axios.get(`http://ec2-52-14-146-214.us-east-2.compute.amazonaws.com:8080/products/${item_id}`)
     .then((res) => {
       console.log('from axios get request: ', res);
