@@ -28,7 +28,7 @@ class RadialChart extends Component {
         const circleRadius = Math.min(radius, 100);
         const circumference = 2 * 3.14 * circleRadius;
         const strokeLength = setStrokeLength ? circumference / 100 * progress : 0;
-return (
+    return (
            <div
                 className={classNames('radial-chart', className, {
                     'no-progress': strokeLength === 0
