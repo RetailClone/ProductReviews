@@ -12,31 +12,31 @@ class ReviewList extends React.Component {
     return(
       <div>
         <ul>
-          {this.props.reviews.map((item, idx) => (
-            <div className="list" key={idx}>
+          { this.props.reviews.map((item, idx) => (
+            <div className="list" key={ idx }>
               <div>
                 <h4 className="title">
-                {item.review_title}
+                { item.review_title }
                 </h4>
               </div>
               <div className="star">
                 <StarRatingComponent
                 name="rating"
-                starCount={5}
-                value={item.rating}
+                starCount={ 5 }
+                value={ item.rating }
                 />
               </div>
               <div className="timebox">
-                <span>{item.customer_name}</span>
+                <span>{ item.customer_name }</span>
                 <span> - </span>
                 {/* use momentjs to format date */}
-                <span>{moment(item.date).calendar()}</span>
+                <span>{ moment(item.date).calendar() }</span>
               </div>
               <div className="itemReview">
-               {item.review}
+               { item.review }
               </div>
             </div>
-          ))}
+          )) }
         </ul>
       </div>
     )

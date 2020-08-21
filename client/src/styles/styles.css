@@ -1,9 +1,9 @@
 
-.container {
-  font-size: 14px;
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-bottom: 16px;
+.containerRC {
+  font-size: 14px important;
+  padding-left: 16px important;
+  padding-right: 16px important;
+  padding-bottom: 16px important;
   border-bottom: 1px solid rgb(214, 214, 214);
 }
 
@@ -339,11 +339,11 @@ input[type=checkbox] + label {
   padding: 0.2em;
 }
 
-input[type=checkbox] {
+.checkbox-display input[type=checkbox] {
   display: none;
 }
 
-input[type=checkbox] + label:before {
+.checkbox-display input[type=checkbox] + label:before {
   content: "\2714";
   border: 0.1em solid #000;
   border-radius: 0.2em;
@@ -358,22 +358,22 @@ input[type=checkbox] + label:before {
   transition: .2s;
 }
 
-input[type=checkbox] + label:active:before {
+.checkbox-display input[type=checkbox] + label:active:before {
   transform: scale(0);
 }
 
-input[type=checkbox]:checked + label:before {
+.checkbox-display input[type=checkbox]:checked + label:before {
   background-color: rgb(204, 0, 0);
   border-color: rgb(204, 0, 0);
   color: #fff;
 }
 
-input[type=checkbox]:disabled + label:before {
+.checkbox-display input[type=checkbox]:disabled + label:before {
   transform: scale(1);
   border-color: #aaa;
 }
 
-input[type=checkbox]:checked:disabled + label:before {
+.checkbox-display input[type=checkbox]:checked:disabled + label:before {
   transform: scale(1);
   background-color: rgb(204, 0, 0);
   border-color: rgb(204, 0, 0);

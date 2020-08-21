@@ -1,8 +1,7 @@
 const express = require("express");
 const path = require("path");
-var cors = require("cors");
+const cors = require("cors");
 const {
-  getReviews,
   postReview,
   getProducts,
   getReviewsByID,
@@ -11,17 +10,14 @@ const {
 const app = express();
 const port = 8080;
 
-//connect to the client
+// connect to the client
 app.use(express.static(path.join(__dirname, "../client/dist")));
 app.use(express.json());
 app.use(cors());
 
 //ROUTING
-
-//handle get request and send products
-//------------------------------------------
+// handle get request for individual product by id
 app.get("/products/:item_id", (req, res) => {
-  console.log("this is params from products", req.params);
   getProducts(req.params.item_id, (err, data) => {
     if (err) {
       console.log("problem getting tasks from server for products");
@@ -32,6 +28,7 @@ app.get("/products/:item_id", (req, res) => {
   });
 });
 
+// handle get request for reviews by id
 app.get("/reviews/:item_id", (req, res) => {
   console.log(req.params);
   getReviewsByID(req.params.item_id, (err, data) => {
@@ -44,7 +41,7 @@ app.get("/reviews/:item_id", (req, res) => {
   });
 });
 
-//handle post request from the client
+// handle post request and add reviews sent by clients
 app.post("/add-review", (req, res) => {
   console.log("Sucessfully posted data", req.body);
   postReview(
@@ -64,7 +61,7 @@ app.post("/add-review", (req, res) => {
   );
 });
 
-//listen to port
+// listen to port
 app.listen(port, () => {
   console.log(`Listening to port ${port}`);
 });

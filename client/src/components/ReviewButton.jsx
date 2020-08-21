@@ -6,20 +6,20 @@ function ReviewButton(props) {
   const [showForm, setForm] = useState(false);
   return(
     <div>
-      <button className="reviewBtn" onClick={() => setForm(true)}>
+      <button className="reviewBtn" onClick={ () => setForm(true) }>
         Write a review
       </button>
-      {showForm ? <Form
-      getReview={props.getReview}
-      onClick={bool => setForm(bool)}
-      customerName={props.customerName}
-      title={props.title}
-      review={props.review}
-      rating={props.rating}
-      onStarClick={props.onStarClick}
-      changeHandler={props.changeHandler}
-      submitHandler={props.submitHandler}
-      /> : null}
+      { showForm ? <Form
+      getReview={ props.getReview }
+      onClick={ bool => setForm(bool) }
+      customerName={ props.customerName }
+      title={ props.title }
+      review={ props.review }
+      rating={ props.rating }
+      onStarClick={ props.onStarClick }
+      changeHandler={ props.changeHandler }
+      submitHandler={ props.submitHandler }
+      /> : null }
     </div>
   )
 }
