@@ -38,11 +38,11 @@ class ReviewList extends React.Component {
                 { item.review }
                 </div>
               </div>
-              <div className='review-and-stats'>
+              {/* <div className='review-and-stats'>
                 <div>
                   <RadialBarChart />
                 </div>
-              </div>
+              </div> */}
             </div>
           )) }
         </ul>
