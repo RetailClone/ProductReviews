@@ -38,9 +38,6 @@ const DisplayProgressBar = (props) => {
     </div>
       ))}
     </div>
-
-
-
   )
 }
 

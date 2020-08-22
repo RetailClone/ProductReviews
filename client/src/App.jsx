@@ -18,6 +18,8 @@ class App extends React.Component {
       title: '',
       review: '',
       rating: 0,
+      quality: 0,
+      value: 0,
       item_id: window.product_id || 1 ,
       percentage: 80,
     };
@@ -114,7 +116,9 @@ class App extends React.Component {
         title: '',
         review: '',
         rating: 0,
-        item_id: 0,
+        quality: 0,
+        value: 0,
+        item_id: this.state.item_id,
       });
     })
     .catch(err => {

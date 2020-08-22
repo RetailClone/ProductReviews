@@ -64,9 +64,9 @@ class Form extends React.Component {
             </div>
             <div>
               <StarRatings
-              rating={this.props.rating}
+              rating={this.props.quality}
               numberOfStars={5}
-              name='value'
+              name='quality'
               starDimension="20px"
               starSpacing="0px"
               changeRating={this.props.onStarClick}
@@ -82,7 +82,7 @@ class Form extends React.Component {
             </div>
             <div>
               <StarRatings
-              rating={this.props.rating}
+              rating={this.props.value}
               numberOfStars={5}
               name='value'
               starDimension="20px"
@@ -114,8 +114,8 @@ class Form extends React.Component {
                      </label>
              </div>
 
-          </div>
-        </div> */}
+          </div> */}
+        {/* </div> */}
         <div className="cancel-submit-button">
           <span>
             {/* Click handler to close the form when cancel is clicked */}
