@@ -25,7 +25,7 @@ class RadialChart extends Component {
             color
         } = this.props;
 
-        const circleRadius = Math.min(radius, 100);
+        const circleRadius = Math.min(radius, 70);
         const circumference = 2 * 3.14 * circleRadius;
         const strokeLength = setStrokeLength ? circumference / 100 * progress : 0;
     return (
@@ -57,7 +57,7 @@ class RadialChart extends Component {
                    />
                    <text
                       textAnchor="middle"
-                      fontSize="60"
+                      fontSize="55"
                       fontWeight= "bold"
                       fill="#006601"
                       x="90"

@@ -1,13 +1,18 @@
+html {
+  font-family: Targetica, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  text-size-adjust: 100%;
+}
 
 .containerRC {
   font-size: 14px important;
-  padding-left: 16px important;
-  padding-right: 16px important;
-  padding-bottom: 16px important;
+  max-width: 1400px;
+  margin: 0 auto;
   border-bottom: 1px solid rgb(214, 214, 214);
 }
 
 .heading {
+  justify-content: center;
   text-align: center;
   font-family: "Helvetica for Target", HelveticaForTarget, Targetica, "HelveticaNeue for Target", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
@@ -387,3 +392,34 @@ input[type=checkbox] + label {
   font-size: 16px;
 }
 
+
+
+ /* radio btn */
+
+ input[type='radio']:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: rgb(204, 0, 0);
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}

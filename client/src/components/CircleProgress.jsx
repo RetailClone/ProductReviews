@@ -6,7 +6,7 @@ const CircleProgress = (props) => {
     <div className="header-circular-bar">
       <Circle
       className="radial-bar"
-      progress={70}
+      progress={100}
       color="#3c71d0"/>
 
       <div className="circular-would-recommend">
