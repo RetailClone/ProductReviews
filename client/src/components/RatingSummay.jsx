@@ -31,7 +31,6 @@ const RatingSummary = (props) => {
       </div>
       ))}
     </div>
-
   )
 }
 
