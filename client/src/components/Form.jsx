@@ -13,7 +13,7 @@ class Form extends React.Component {
       <form onSubmit={this.props.submitHandler}>
 
         <div className="form-review-heading">
-          <h3>Write your review</h3>
+          <h2>Write your review</h2>
         </div>
 
         <div className="review-content">
@@ -34,7 +34,7 @@ class Form extends React.Component {
           </div>
           <div className="review-textare">
             <textarea
-            rows='5'
+            rows='6'
             cols='50'
             placeholder='Review'
             name='review'
