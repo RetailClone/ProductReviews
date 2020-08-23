@@ -9,50 +9,58 @@ class Form extends React.Component {
   render() {
     console.log("this is form", this.props)
     return (
-      <div className="form-container">
+      <div className="form-review-container">
       <form onSubmit={this.props.submitHandler}>
-          <div>
-          <StarRatings
-          rating={this.props.rating}
-          numberOfStars={5}
-          name='rating'
-          starDimension="20px"
-          starSpacing="0px"
-          changeRating={this.props.onStarClick}
-          starRatedColor= "rgb(255, 180, 0)"
-          starHoverColor= "rgb(255, 180, 0)"
-          style = {{borderColor: "rgb(202, 134, 0)", border: "5px"} }
-          />
-        </div>
-        <div className="review-content">
-        <div className="review-heading">
+
+        <div className="form-review-heading">
           <h3>Write your review</h3>
         </div>
-        <div className="review-textare">
-          <textarea
-          rows='5'
-          cols='50'
-          placeholder='Review'
-          name='review'
-          value={this.props.review}
-          onChange={this.props.changeHandler}
-          ></textarea>
+
+        <div className="review-content">
+
+        <div className="form-item">
+          <div className="form-rating">
+            <StarRatings
+            rating={this.props.rating}
+            numberOfStars={5}
+            name='rating'
+            starDimension="20px"
+            starSpacing="0px"
+            changeRating={this.props.onStarClick}
+            starRatedColor= "rgb(255, 180, 0)"
+            starHoverColor= "rgb(255, 180, 0)"
+            style = {{borderColor: "rgb(202, 134, 0)", border: "5px"} }
+            />
+          </div>
+          <div className="review-textare">
+            <textarea
+            rows='5'
+            cols='50'
+            placeholder='Review'
+            name='review'
+            value={this.props.review}
+            onChange={this.props.changeHandler}
+            ></textarea>
+          </div>
         </div>
-        <div className="review-title">
-          <input
-          name='title'
-          placeholder='Review title (optional)'
-          value={this.props.title}
-          onChange={this.props.changeHandler}>
-          </input>
-        </div>
-        <div className='review-customer-name'>
-          <input
-          name='customerName'
-          placeholder='Display name'
-          value={this.props.customerName}
-          onChange={this.props.changeHandler}
-          ></input>
+
+        <div className="form-item">
+          <div className="review-title">
+            <input
+            name='title'
+            placeholder='Review title (optional)'
+            value={this.props.title}
+            onChange={this.props.changeHandler}>
+            </input>
+          </div>
+          <div className='review-customer-name'>
+            <input
+            name='customerName'
+            placeholder='Display name'
+            value={this.props.customerName}
+            onChange={this.props.changeHandler}
+            ></input>
+          </div>
         </div>
         {/* <div>
           <h3>
@@ -102,27 +110,23 @@ class Form extends React.Component {
              <div>
              <label className="review-radio">
                <input type="radio" name="radio2" className="RadioInput-sc-3atojb-0 fPGfkw" value="yes"></input>
-                   <div data-test="radioComponentLabel">Yes</div>
-                   <div className="h-text-grayDark">
-                     </div>
-                     </label>
-                <label className="review-radio">
-                <input type="radio" name="radio2" className="RadioInput-sc-3atojb-0 fPGfkw" value="no"></input>
-                   <div data-test="radioComponentLabel">No</div>
-                   <div className="h-text-grayDark">
-                     </div>
-                     </label>
-             </div>
+                   Yes
+            </label>
+            <label className="review-radio">
+            <input type="radio" name="radio2" className="RadioInput-sc-3atojb-0 fPGfkw" value="no"></input>
+                No
+            </label>
+            </div>
 
-          </div> */}
-        {/* </div> */}
+          </div>
+        </div> */}
+        </div>
         <div className="cancel-submit-button">
           <span>
             {/* Click handler to close the form when cancel is clicked */}
             <button onClick={() => this.props.onClick(false)}>Cancel</button>
           </span>
           <button  type="submit">Submit review</button>
-        </div>
       </div>
       </form>
       </div>

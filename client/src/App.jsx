@@ -108,6 +108,7 @@ class App extends React.Component {
       item_id: this.state.item_id,
     })
     .then(() => this.getReview(this.state.item_id))
+    .then(() => this.getProducts(this.state.item_id))
     // Clear the form once the form is submitted
     .then(res => {
       console.log(res)

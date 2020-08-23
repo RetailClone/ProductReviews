@@ -64,7 +64,7 @@ html {
 
 .list {
   padding: 20px;
-  margin: 16px 66px 16px 16px;
+  margin: 16px 0px 16px 0px;
   text-align: left;
   border-width: 1px;
   border-style: solid;
@@ -189,7 +189,7 @@ html {
 
 /* css for header-circular-bar */
 .header-circular-bar {
-  width: 180px;
+  width: 190px;
   box-sizing: border-box;
   margin-left: 4px ;
   margin-right: 4px ;
@@ -197,8 +197,13 @@ html {
   margin-bottom: 0;
 }
 
-.radial-bar {
+/* .radial-bar {
   padding-left: 50px;
+} */
+
+.circle-inner {
+  justify-content: center;
+  text-align: center;
 }
 
 /* circlr-stuff */
@@ -227,6 +232,7 @@ html {
 .circular-would-recommend {
   font-weight: bold ;
   font-size: 16px;
+  text-align: center;
 }
 
 .circular-recommended {
@@ -250,7 +256,7 @@ html {
   padding: 16px ;
   /* margin-top: 20px;
   margin-bottom: 20px; */
-  margin: 20px 56px 20px 56px;
+  margin: 20px 0px 20px 0px;
 }
 
 .sort-by-date {
@@ -388,7 +394,7 @@ input[type=checkbox] + label {
 /* css for total reviews text */
 
 .total-reviews {
-  padding-left: 72px;
+  padding-left: 32px;
   font-size: 16px;
 }
 
@@ -422,4 +428,24 @@ input[type='radio']:checked:after {
   display: inline-block;
   visibility: visible;
   border: 2px solid white;
+}
+
+
+
+/* css for form */
+
+.review-content{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.form-item {
+  flex-direction: row
+}
+
+
+
+.review-list ul {
+  padding-inline-start: 0px;
 }
