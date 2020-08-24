@@ -2,36 +2,17 @@ html {
   font-family: Targetica, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   text-size-adjust: 100%;
-  box-sizing: border-box;
 }
 
-body {
-  line-height: 1.4285;
-  color: rgb(51, 51, 51);
-  background-color: white;
-  max-width: 100%;
-  overflow-x: hidden;
-  margin: 0px;
-}
-
-div {
-  line-height: 1.4285;
-  color: rgb(51, 51, 51);
-  background-color: white;
-  max-width: 100%;
-  overflow-x: hidden;
-  margin: 0px;
-}
-
-.container {
-  font-size: 14px;
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-bottom: 16px;
+.containerRC {
+  font-size: 14px important;
+  max-width: 1400px;
+  margin: 30px auto 30px auto;
   border-bottom: 1px solid rgb(214, 214, 214);
 }
 
 .heading {
+  justify-content: center;
   text-align: center;
   font-family: "Helvetica for Target", HelveticaForTarget, Targetica, "HelveticaNeue for Target", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
@@ -83,7 +64,7 @@ div {
 
 .list {
   padding: 20px;
-  margin: 16px;
+  margin: 16px 0px 16px 0px;
   text-align: left;
   border-width: 1px;
   border-style: solid;
@@ -134,7 +115,7 @@ div {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: auto;
+  margin: 16px auto 16px auto;
 }
 
 /* css for header-progress-bar */
@@ -208,7 +189,7 @@ div {
 
 /* css for header-circular-bar */
 .header-circular-bar {
-  width: 180px;
+  width: 190px;
   box-sizing: border-box;
   margin-left: 4px ;
   margin-right: 4px ;
@@ -216,8 +197,14 @@ div {
   margin-bottom: 0;
 }
 
-.radial-bar {
+/* .radial-bar {
   padding-left: 50px;
+} */
+
+.circle-inner {
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 5px;
 }
 
 /* circlr-stuff */
@@ -242,10 +229,10 @@ div {
 }
 /* end */
 
-
 .circular-would-recommend {
   font-weight: bold ;
   font-size: 16px;
+  text-align: center;
 }
 
 .circular-recommended {
@@ -267,8 +254,9 @@ div {
   flex: 0 1 auto;
   align-items: center ;
   padding: 16px ;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  /* margin-top: 20px;
+  margin-bottom: 20px; */
+  margin: 20px 0px 20px 0px;
 }
 
 .sort-by-date {
@@ -339,7 +327,8 @@ div {
 
 .sort-by-photos {
   box-sizing: border-box;
-  margin-left: 550px;
+  /* margin-left: 550px; */
+  margin-left: auto;
   border-right-color: inherit;
   flex-direction: row;
   display: inline;
@@ -350,7 +339,8 @@ div {
 
 .checkbox-display {
   display: flex;
-  flex-direction: column
+  flex-direction: column;
+  background-color:  rgb(247, 247, 247);
 }
 
 input[type=checkbox] + label {
@@ -360,17 +350,17 @@ input[type=checkbox] + label {
   padding: 0.2em;
 }
 
-input[type=checkbox] {
+.checkbox-display input[type=checkbox] {
   display: none;
 }
 
-input[type=checkbox] + label:before {
+.checkbox-display input[type=checkbox] + label:before {
   content: "\2714";
   border: 0.1em solid #000;
   border-radius: 0.2em;
   display: inline-block;
-  width: 1em;
-  height: 1em;
+  width: 20px;
+  height: 20px;
   padding-left: 0.2em;
   padding-bottom: 0.3em;
   margin-right: 0.2em;
@@ -379,25 +369,157 @@ input[type=checkbox] + label:before {
   transition: .2s;
 }
 
-input[type=checkbox] + label:active:before {
+.checkbox-display input[type=checkbox] + label:active:before {
   transform: scale(0);
 }
 
-input[type=checkbox]:checked + label:before {
+.checkbox-display input[type=checkbox]:checked + label:before {
   background-color: rgb(204, 0, 0);
   border-color: rgb(204, 0, 0);
   color: #fff;
 }
 
-input[type=checkbox]:disabled + label:before {
+.checkbox-display input[type=checkbox]:disabled + label:before {
   transform: scale(1);
   border-color: #aaa;
 }
 
-input[type=checkbox]:checked:disabled + label:before {
+.checkbox-display input[type=checkbox]:checked:disabled + label:before {
   transform: scale(1);
   background-color: rgb(204, 0, 0);
   border-color: rgb(204, 0, 0);
 }
 
 
+/* css for total reviews text */
+
+.total-reviews {
+  padding-left: 32px;
+  font-size: 16px;
+}
+
+
+
+ /* radio btn */
+
+ input[type='radio']:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: rgb(204, 0, 0);
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+
+
+/* css for form */
+
+.review-content{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+}
+
+.form-item {
+  flex-direction: row;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+
+.review-textare {
+  padding-top: 30px;
+}
+
+.review-textare textarea {
+  background-color: rgb(255, 245, 235);
+  border-color: rgb(232, 105, 0);
+  border-radius: 0px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 9px 12px;
+  margin: 0px;
+}
+
+.review-title {
+  margin-top: 18px;
+}
+
+.review-title  input{
+  background-color: rgb(255, 245, 235);
+  border-color: rgb(232, 105, 0);
+  border-radius: 0px;
+  border-width: 1px;
+  border-style: solid;
+  height: 20px;
+  padding: 9px 12px;
+  margin: 0px;
+}
+
+.review-customer-name {
+  padding-top: 20px;
+}
+
+.review-customer-name input{
+  background-color: rgb(255, 245, 235);
+  border-color: rgb(232, 105, 0);
+  border-radius: 0px;
+  border-width: 1px;
+  border-style: solid;
+  height: 20px;
+  padding: 9px 12px;
+  margin: 0px;
+}
+
+
+.review-list ul {
+  padding-inline-start: 0px;
+}
+
+.form-rating {
+  float: left;
+}
+
+.cancel-submit-button button {
+  position: relative;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  white-space: nowrap;
+  user-select: none;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 1.42857;
+  color: rgb(80, 80, 80);
+  background-color: rgb(247, 247, 247);
+  border-width: 1px;
+  border-style: solid;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border-color: rgb(214, 214, 214);
+}

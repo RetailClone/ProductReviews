@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function RadialBarChart() {
   return (
@@ -11,7 +11,7 @@ function RadialBarChart() {
           cy="26.5"
           r="25"
           strokeWidth="3"
-        ></circle>
+        />
         <circle
           stroke="#008300"
           fill="transparent"
@@ -22,7 +22,7 @@ function RadialBarChart() {
           strokeDasharray="157.07963267948966, 160"
           strokeLinecap="round"
           transform="rotate(-90 26.5 26.5)"
-        ></circle>
+        />
         <text
           textAnchor="middle"
           fontSize="16"
