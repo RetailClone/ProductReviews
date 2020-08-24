@@ -1,8 +1,12 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable no-useless-constructor */
+/* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 import moment from 'moment';
-import '../styles/styles.css'
+import '../styles/styles.css';
 import StarRatingComponent from 'react-star-rating-component';
-import RadialBarChart from './RadialBarChart.jsx';
 
 class ReviewList extends React.Component {
   constructor(props) {
@@ -10,22 +14,22 @@ class ReviewList extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div className="review-list">
         <ul>
           { this.props.reviews.map((item, idx) => (
-            <div className="list" key={ idx }>
-              <div className='review-only'>
+            <div className="list" key={idx}>
+              <div className="review-only">
                 <div>
                   <h4 className="title">
-                  { item.review_title }
+                    { item.review_title }
                   </h4>
                 </div>
                 <div className="star">
                   <StarRatingComponent
-                  name="rating"
-                  starCount={ 5 }
-                  value={ item.rating }
+                    name="rating"
+                    starCount={5}
+                    value={item.rating}
                   />
                 </div>
                 <div className="timebox">
@@ -35,21 +39,15 @@ class ReviewList extends React.Component {
                   <span>{ moment(item.date).calendar() }</span>
                 </div>
                 <div className="itemReview">
-                { item.review }
+                  { item.review }
                 </div>
               </div>
-              {/* <div className='review-and-stats'>
-                <div>
-                  <RadialBarChart />
-                </div>
-              </div> */}
             </div>
           )) }
         </ul>
       </div>
-    )
+    );
   }
-
 }
 
 export default ReviewList;
