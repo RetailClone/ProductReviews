@@ -6,13 +6,15 @@ This micro service allows users to display and add reviews to all the products. 
 
 Retail Clone is a Full-Stack E-commerce Web Application to implement Item Detail Page with focus on design and functationality. This Application was built by a team of five Full Stack Software Engineers from the Hack Reactor, Austin 50th Cohort (HRATX50).The site utilizes service oritented architecture to increase flexibility, scalability, and reliablility. The final project consists of 5 standalone services, which can be easily combined utilizing a Proxy. The five services are Search/Header/Footer, About This Item, Recommended / Featured Items, and Product Reviews.
 
-## Overall Page/Product View Demo
+### Overall Page Demo
 
+![B1](https://user-images.githubusercontent.com/34432441/97263679-e28b2f00-17f9-11eb-8e61-fc85a8be7e6f.gif)
 
-## Product View and Shipping Demo
+### Product Reviews Demo
 
+![b2](https://user-images.githubusercontent.com/34432441/97263908-431a6c00-17fa-11eb-8660-ed5e92e01a5e.gif)
 
-## Dev Team
+### Dev Team
 
   * [Mariella Arias]: Frequently Bought Together and Recommended Items
   * [Andrew Binkard]: About This Item
@@ -20,7 +22,7 @@ Retail Clone is a Full-Stack E-commerce Web Application to implement Item Detail
   * [Rahul Chauhan]: Product Reviews
   * [Belle Nguyen]: Product View and Shipping
 
-## Tech Stack 
+### Tech Stack 
 *Product Reviews* was built primarily with ReactJS and CSS on the front end and Node/Express on the backend. Other key technologies used are listed below: 
 
 ### Technologies
